@@ -246,7 +246,8 @@ drop D_hat D_hat_full D_hat_noZ resid_full resid_noZ
 di _newline(2)
 di as txt "========== SECTION 3: BASIC 2SLS =========="
 
-ivreg2 income (D = Z) edu_head hh_size land_owned female_head base_income i.district_id, first
+ivreg2 income (D = Z) edu_head hh_size land_owned female_head base_income ///
+       i.district_id, first
 
 /*
   Output breakdown:
@@ -877,3 +878,9 @@ di as txt "=========================================================="
   ──────────────────────────────────────────────────────────────────────
 */
 
+
+log close
+
+di as result _newline "Tutorial complete. Dataset saved: rct_household_survey.dta"
+di as result "Results exported: ivreg2_results.csv"
+di as result "Log file: ivreg2_tutorial_log.txt"
