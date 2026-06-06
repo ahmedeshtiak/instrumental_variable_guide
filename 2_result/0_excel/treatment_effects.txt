@@ -1,0 +1,13 @@
+		(1)	(2)	(3)	(4)	(5)	(6)	(7)
+			(2)	(3)	(4)	(5)	(6)	
+VARIABLES	LABELS	(1) PCE (BDT)	Income (BDT)	Food Exp (BDT)	Days Worked	Savings (BDT)	Child School	Women Empower.
+								
+treat	Treatment Indicator (1=Treated)	174.7***	424.2***	136.4***	1.47***	270.7***	0.029***	0.67***
+		(20.5)	(19.8)	(14.1)	(0.22)	(22.9)	(0.010)	(0.06)
+								
+Observations		5,000	5,000	5,000	5,000	5,000	5,000	5,000
+R-squared		0.0	0.1	0.0	0.05	0.0	0.003	0.04
+District FE		Yes	Yes	Yes	Yes	Yes	Yes	Yes
+Covariates		Yes	Yes	Yes	Yes	Yes	Yes	Yes
+Control Mean		1663	2270	1304	14	696	0	6
+Control N		2088						

@@ -1,0 +1,28 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS	(3) With Controls Only	(3) With Controls Only	(3) With Controls Only
+				
+treat	Treatment Indicator (1=Treated)	424.2	424.2***	424.2***
+		(19.81)	(19.81)	(19.81)
+hh_size	Household Size	3.108	3.108	3.108
+		(10.50)	(10.50)	(10.50)
+hh_female_hh	Female-Headed Household (1=Yes)	-57.16	-57.16**	-57.16**
+		(24.36)	(24.36)	(24.36)
+hh_age_head	Age of Household Head (years)	2.078	2.078**	2.078**
+		(0.961)	(0.961)	(0.961)
+hh_edu_head	Education of Head (years)	42.55	42.55***	42.55***
+		(5.089)	(5.089)	(5.089)
+hh_land_owned	Land Owned (acres)	-15.00	-15.00	-15.00
+		(77.56)	(77.56)	(77.56)
+2.district	District = 2, Rajshahi	3.701	3.701	3.701
+		(22.41)	(22.41)	(22.41)
+3.district	District = 3, Khulna	52.38	52.38**	52.38**
+		(25.22)	(25.22)	(25.22)
+				
+Observations		5,000	5,000	5,000
+R-squared		0.076	0.076	
+District FE		Yes	Yes	Yes
+Covariates		Yes	Yes	Yes
+SE Clustered		Village	Village	Village
+Robust standard errors in parentheses				
+Standard errors clustered at village level.				
+*** p<0.01 ** p<0.05 * p<0.1				

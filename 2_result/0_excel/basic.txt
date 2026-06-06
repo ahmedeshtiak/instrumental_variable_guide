@@ -1,0 +1,12 @@
+	(1)
+VARIABLES	income_el
+	
+treat	417.2***
+	(23.45)
+Constant	2,270***
+	(17.90)
+	
+Observations	5,000
+R-squared	0.060
+Standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

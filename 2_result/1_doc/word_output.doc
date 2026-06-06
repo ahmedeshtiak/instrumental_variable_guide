@@ -1,0 +1,33 @@
+{\rtf1\fs24
+\trowd\trgaph75\trleft-75\intbl\trqc\clbrdrt\brdrs\cellx4608\clbrdrt\brdrs\cellx6192\clbrdrt\brdrs\cellx8064
+\ql \cell\qc (1)\cell\qc (2)\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx4608\cellx6192\cellx8064
+\trowd\trgaph75\trleft-75\trqc\clbrdrb\brdrs\cellx4608\clbrdrb\brdrs\cellx6192\clbrdrb\brdrs\cellx8064
+\ql VARIABLES\cell\qc No Control\cell\qc With Control\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx4608\cellx6192\cellx8064
+\ql \cell\qc \cell\qc \cell\row
+\ql Income Endline (BDT/month)\cell\qc \cell\qc \cell\row
+\ql \cell\qc \cell\qc \cell\row
+\ql Treatment Indicator (1=Treated)\cell\qc 417.2***\cell\qc 419.5***\cell\row
+\ql \cell\qc (0)\cell\qc (0)\cell\row
+\ql Household Size\cell\qc \cell\qc 3.084\cell\row
+\ql \cell\qc \cell\qc (0.764)\cell\row
+\ql Female-Headed Household (1=Yes)\cell\qc \cell\qc -57.14**\cell\row
+\ql \cell\qc \cell\qc (0.0134)\cell\row
+\ql Age of Household Head (years)\cell\qc \cell\qc 2.063**\cell\row
+\ql \cell\qc \cell\qc (0.0362)\cell\row
+\ql Education of Head (years)\cell\qc \cell\qc 42.72***\cell\row
+\ql \cell\qc \cell\qc (0)\cell\row
+\ql Land Owned (acres)\cell\qc \cell\qc -14.50\cell\row
+\ql \cell\qc \cell\qc (0.839)\cell\row
+\ql \cell\qc \cell\qc \cell\row
+\ql Observations\cell\qc 5,000\cell\qc 5,000\cell\row
+\ql R-squared\cell\qc 0.060\cell\qc 0.075\cell\row
+\ql District FE\cell\qc No\cell\qc No\cell\row
+\ql Covariates\cell\qc No\cell\qc Yes\cell\row
+\trowd\trgaph75\trleft-75\trqc\trbrdrb\brdrs\clbrdrb\brdrs\cellx4608\clbrdrb\brdrs\cellx6192\clbrdrb\brdrs\cellx8064
+\ql SE Clustered\cell\qc No\cell\qc No\cell\row
+\pard\qc
+pval in parentheses\par
+*** p<0.01, ** p<0.05, * p<0.1\par
+}

@@ -1,0 +1,25 @@
+		(1)
+VARIABLES	LABELS	With Control
+		
+income_el	Income Endline (BDT/month)	
+		
+hh_land_owned	Land Owned (acres)	-14.50
+		(0.839)
+hh_female_hh	Female-Headed Household (1=Yes)	-57.14**
+		(0.0134)
+treat	Treatment Indicator (1=Treated)	419.5***
+		(0)
+hh_age_head	Age of Household Head (years)	2.063**
+		(0.0362)
+hh_edu_head	Education of Head (years)	42.72***
+		(0)
+hh_size	Household Size	3.084
+		(0.764)
+		
+Observations		5,000
+R-squared		0.075
+District FE		No
+Covariates		Yes
+SE Clustered		No
+pval in parentheses		
+*** p<0.01, ** p<0.05, * p<0.1		

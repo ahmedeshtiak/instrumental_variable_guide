@@ -1,0 +1,29 @@
+		(1)	(2)	(3)	(4)
+VARIABLES	LABELS	No Control	With Control	District FE	SE Clustered
+					
+income_el	Income Endline (BDT/month)				
+					
+treat	Treatment Indicator (1=Treated)	417.2***	419.5***	424.2***	424.2***
+		(0)	(0)	(0)	(0)
+hh_size	Household Size		3.084	3.108	3.108
+			(0.764)	(0.762)	(0.768)
+hh_female_hh	Female-Headed Household (1=Yes)		-57.14**	-57.16**	-57.16**
+			(0.0134)	(0.0134)	(0.0212)
+hh_age_head	Age of Household Head (years)		2.063**	2.078**	2.078**
+			(0.0362)	(0.0350)	(0.0333)
+hh_edu_head	Education of Head (years)		42.72***	42.55***	42.55***
+			(0)	(0)	(0)
+hh_land_owned	Land Owned (acres)		-14.50	-15.00	-15.00
+			(0.839)	(0.833)	(0.847)
+2.district	District = 2, Rajshahi			3.701	3.701
+				(0.895)	(0.869)
+3.district	District = 3, Khulna			52.38*	52.38**
+				(0.0637)	(0.0407)
+					
+Observations		5,000	5,000	5,000	5,000
+R-squared		0.060	0.075	0.076	0.076
+District FE		No	No	Yes	Yes
+Covariates		No	Yes	Yes	Yes
+SE Clustered		No	No	No	Village
+pval in parentheses					
+*** p<0.01, ** p<0.05, * p<0.1					

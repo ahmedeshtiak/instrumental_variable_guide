@@ -1,0 +1,27 @@
+		(1)	(2)	(3)	(4)
+VARIABLES	LABELS	LPM	Probit	Probit With AME	Logistic
+					
+treat	Treatment Indicator (1=Treated)	0.0292***	0.147***	0.0288***	0.278***
+		(0.00999)	(0.0500)	(0.00969)	(0.0953)
+hh_size	Household Size	-0.00168	-0.00839	-0.00165	-0.0162
+		(0.00433)	(0.0217)	(0.00427)	(0.0417)
+hh_female_hh	Female-Headed Household (1=Yes)	0.0103	0.0524	0.0103	0.0990
+		(0.00820)	(0.0412)	(0.00813)	(0.0782)
+hh_age_head	Age of Household Head (years)	-9.08e-05	-0.000511	-0.000100	-0.000878
+		(0.000422)	(0.00216)	(0.000426)	(0.00408)
+hh_edu_head	Education of Head (years)	0.00152	0.00755	0.00148	0.0147
+		(0.00168)	(0.00843)	(0.00167)	(0.0161)
+hh_land_owned	Land Owned (acres)	-0.0178	-0.0893	-0.0175	-0.170
+		(0.0286)	(0.143)	(0.0282)	(0.271)
+2.district	District = 2, Rajshahi	0.000481	0.00139	0.000268	0.00461
+		(0.0122)	(0.0634)	(0.0123)	(0.121)
+3.district	District = 3, Khulna	-0.00694	-0.0372	-0.00736	-0.0663
+		(0.0120)	(0.0603)	(0.0119)	(0.115)
+					
+Observations		5,000	5,000	5,000	5,000
+R-squared		0.003			
+District FE		Yes	Yes	Yes	Yes
+Covariates		Yes	Yes	Yes	Yes
+SE Clustered		Village	Village	Village	Village
+Robust standard errors in parentheses					
+*** p<0.01, ** p<0.05, * p<0.1					
