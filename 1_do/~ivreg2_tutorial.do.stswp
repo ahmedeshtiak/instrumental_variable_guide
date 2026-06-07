@@ -74,8 +74,10 @@ use "$RAW/rct_hh_survey.dta", clear
 
 
 **# CREATE ENDOGENOUS TAKE-UP VARIABLE
-//80 % take-up rate in treated villages
-// 10 % "leakage" in control villages (e.g., NGO spillovers)
+80 % take-up rate in treated villages
+    · 10 % "leakage" in control villages (e.g., NGO spillovers)
+    · Unobserved motivation (u) raises both take-up probability and income.
+*/
 
 set seed 20250601    
 
