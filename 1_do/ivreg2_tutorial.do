@@ -140,9 +140,9 @@ label var far_market "Far from market: >6 km (binary instrument)"
 save "$CLEAN/rct_hh_survey_iv.dta", replace
 
 
-*==============================================================================
+
 **# OLS — BIASED ESTIMATOR (Intention to Treatment Effect)
-*==============================================================================
+
 regress income_el treat hh_size hh_female_hh hh_age_head hh_edu_head hh_land_owned asset_index_bl i.district, vce(cluster village_id)
 
 estimates store ITT
@@ -150,9 +150,8 @@ estimates store ITT
 //Coefficient on treat > 463, this is downward bias
 
 
-*==============================================================================
+
 **#  FIRST-STAGE REGRESSION
-*==============================================================================
 /*
   The first stage regresses the ENDOGENOUS variable (takeup) on the IV (treat) and all exogenous controls.
 
@@ -174,81 +173,21 @@ test treat //First-stage F on treat: 17533.14| F >> 10: treat is a strong instru
 //F < 10: instrument is weak → use LIML or Fuller 
 
 
-*==============================================================================
+
 **# Instrumental Variable  Regression
-*==============================================================================
+
 ivreg2 income_el (takeup = treat) hh_size hh_female_hh hh_age_head hh_edu_head hh_land_owned asset_index_bl i.district, first // also print first stage
 
-estimates store IV_2SLS_basic
-// β₂SLS LATE (Local Average Treatment Effect for compliers)
+estimates store LATE
+// β₂SLS = LATE (Local Average Treatment Effect for compliers)
 
+esttab ITT LATE, b(%9.1f) se(%9.1f) star(* 0.10 ** 0.05 *** 0.01)  mtitles("OLS (biased)" "2SLS (LATE)") title("OLS vs 2SLS: Effect of Take-up on Monthly Income") // Compare OLS vs 2SLS
 
-/*
-  Output sections explained:
-  ─────────────────────────────────────────────────────────────────────────
-  FIRST STAGE (shown because of ,first):
-    · Coefficient on treat: first-stage compliance rate
-    · Kleibergen-Paap rk LM stat: tests underidentification (want p < 0.05)
-    · Kleibergen-Paap rk Wald F: tests weak identification (want > 10)
+***********************************************************
 
-  SECOND STAGE (main ivreg2 output):
-    · Coefficient on takeup: LATE estimate (~450 BDT, vs OLS which was higher)
-    · SE larger than OLS — IV pays a precision cost for consistency
-    · No overidentification test (just-identified, J statistic not reported)
-  ─────────────────────────────────────────────────────────────────────────
-
-  Compare OLS vs 2SLS coefficient on takeup:
-*/
-esttab OLS IV_2SLS_basic,                                      ///
-    keep(takeup) b(%9.1f) se(%9.1f)                            ///
-    star(* 0.10 ** 0.05 *** 0.01)                              ///
-    mtitles("OLS (biased)" "2SLS (LATE)")                      ///
-    title("OLS vs 2SLS: Effect of Take-up on Monthly Income")  ///
-    note("True ATE programmed in data = BDT 450")
-
-
-*==============================================================================
-* PART 4: WEAK INSTRUMENT DIAGNOSTICS
-*==============================================================================
-/*
-  Weak instruments cause:
-  (a) Finite-sample bias of 2SLS toward OLS
-  (b) Severely distorted confidence intervals
-
-  Key statistics produced by ivreg2:
-  ─────────────────────────────────────────────────────────────────────────
-  Cragg-Donald F (iid errors):
-    Classical weak-ID test; invalid with clustered/robust SE.
-
-  Kleibergen-Paap rk Wald F (robust/clustered SE):
-    Correct weak-ID statistic when using vce(cluster) or vce(robust).
-    Compare against Stock-Yogo (2005) critical values printed by ivreg2:
-      > 16.38  →  max 10% size distortion (at 5% nominal level)
-      > 22.30  →  max  5% size distortion
-
-  Kleibergen-Paap rk LM statistic:
-    Tests underidentification: H₀ = equation is underidentified.
-    We want to REJECT H₀ (p < 0.05).
-
-  Partial R²:
-    Share of endogenous variation in takeup explained by treat alone
-    (after partialling out exogenous controls).
-    Higher partial R² = stronger instrument.
-  ─────────────────────────────────────────────────────────────────────────
-*/
-
-di _newline(2) as txt "══════════ PART 4: WEAK INSTRUMENT DIAGNOSTICS ══════════"
 
 * Cluster-robust 2SLS requesting all weak-ID diagnostics
-ivreg2 income_el (takeup = treat)                     ///
-       hh_size hh_female_hh hh_age_head hh_edu_head   ///
-       hh_land_owned asset_index_bl i.district,        ///
-       cluster(village_id)   ///  cluster SE at level of treatment assignment
-       first                 ///  show first stage
-       ffirst                ///  report first-stage F for each endogenous var
-       savefirst             ///  save first-stage estimates for later retrieval
-       partialr2             //   report partial R² of excluded instruments
-
+ivreg2 income_el (takeup = treat) hh_size hh_female_hh hh_age_head hh_edu_head hh_land_owned asset_index_bl i.district, cluster(village_id) first ffirst savefirst 
 * Retrieve the stored first-stage and display weak-ID stat
 estimates restore _ivreg2_takeup_first_stage
 di as result "Kleibergen-Paap rk Wald F (cluster-robust): " %6.2f e(widstat)
