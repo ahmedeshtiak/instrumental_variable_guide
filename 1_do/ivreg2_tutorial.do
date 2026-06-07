@@ -46,9 +46,9 @@
 =============================================================================*/
 
 
-*==============================================================================
+*********
 **# SETUP
-*==============================================================================
+*********
 
 clear all
 set more off
@@ -153,7 +153,7 @@ esttab ITT LATE, b(%9.1f) se(%9.1f) star(* 0.10 ** 0.05 *** 0.01)  mtitles("OLS 
 
 ivreg2 income_el (takeup = treat)  hh_size hh_female_hh hh_age_head hh_edu_head hh_land_owned asset_index_bl i.district, cluster(village_id)  endog(takeup) 
 
-ivreg2 income_el (takeup = treat) hh_size hh_female_hh hh_age_head hh_edu_head hh_land_owned asset_index_bl, cluster(village_id)absorb(upazila) 
+ivreg2 income_el (takeup = treat) hh_size hh_female_hh hh_age_head hh_edu_head hh_land_owned asset_index_bl, cluster(village_id)
 
 
 **# LIML — LIMITED INFORMATION MAXIMUM LIKELIHOOD
